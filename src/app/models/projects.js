@@ -2,7 +2,7 @@ const mongoose = require('../../database');
 const bcrypt = require('bcryptjs');
 
 const ProjectSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     require: true,
   },
@@ -15,7 +15,7 @@ const ProjectSchema = new mongoose.Schema({
     ref: 'User',
     require: true,
   },
-  tasks: [
+  tasks: [ /** referenciou como multiplas tarefas dentro da tabela task */
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Task',
@@ -26,4 +26,10 @@ const ProjectSchema = new mongoose.Schema({
     default: Date.now
   } 
   
-})
+});
+
+
+const Project = mongoose.model('Project', ProjectSchema);
+
+
+module.exports = Project;
