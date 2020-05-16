@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const authConfig = require('../config/auth.json');
+const authConfig = require('../../config/auth.json');
 /** VERIFICAÇÃO DE LOGIN DENTRO DO SISTEMA */
 /** IMPORTADO NO PROJECTS CONTROLLER */
 module.exports = (req, res, next) => {
