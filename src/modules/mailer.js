@@ -6,11 +6,15 @@ const { host, port, user, pass} = require('../config/mail.json');
 
 const transport = nodemailer.createTransport({
   host,
-  auth: { user, pass }
+  port,
+  auth: { user, pass },
 });
 
 transport.use('compile', hbs({
-  viewEngine: 'handlebars', /** CONFIGURAÇÃO */
+  viewEngine: {
+    defaultLayout: undefined,
+    partialsDir: path.resolve('./src/resources/mail/')
+  }, /** CONFIGURAÇÃO */
   viewPath: path.resolve('./src/resources/mail/'), /** CAMINHO DO ARQUIVO */
   extName: '.html', /** EXTENSÃO DO ARQUIVO */
 }));

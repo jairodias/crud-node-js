@@ -17,6 +17,14 @@ const UserSchema = new mongoose.Schema({
     required: true,
     select: false, /** ignora o password no return */
   },
+  passwordResetToken:{
+    type: String,
+    select: false,
+  },
+  passordResetExpires: {
+    type: Date,
+    select: false,
+  },
   createdAt:{
     type: Date,
     default: Date.now,
